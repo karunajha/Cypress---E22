@@ -1,0 +1,41 @@
+class registerPage{
+    elements={
+        firstName:()=>cy.get('#input-firstname'),
+    lastName:()=>cy.get('#input-lastname'),
+    email:()=>cy.get('#input-email'),
+    telephone:()=>cy.get('#input-telephone'),
+    password:()=>cy.get('#input-password'),
+    passwordConfirm:()=>cy.get('#input-confirm'),
+    policyCheckBox:()=>cy.get('input[type="checkbox"]'),
+    continue:()=>cy.get('.btn-primary')
+    }
+    openURL(){
+        cy.visit(Cypress.env('URL'))
+    }
+    enterFirstName=FName=>{
+        this.elements.firstName().type(FName)
+    }
+    enterLastName=LNAme=>{
+        this.elements.lastName().type(LNAme)
+    }
+    enterEmail=Email=>{
+        this.elements.email().type(Email)
+    }
+    enterTelephone=Telephone=>{
+        this.elements.telephone().type(Telephone)
+    }
+    enterPassword=Password=>{
+        this.elements.password().type(Password)
+    }
+    enterConfirmPassword=ConfirmPassword=>{
+        this.elements.passwordConfirm().type(ConfirmPassword)
+    }
+    selectCheckBox=()=>{
+        this.elements.policyCheckBox().check()
+    }
+    clickOnContinue=()=>{
+        this.elements.continue().click();
+
+    }
+}
+module.exports = new registerPage();
